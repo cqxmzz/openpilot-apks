@@ -6,7 +6,7 @@ cd $DIR
 APK_OUT=${1:-$PWD/ai.comma.plus.offroad.apk}
 TOOLS="$PWD/../tools"
 CEREAL="$PWD/../../cereal"
-export SENTRY_SKIP_UPLOAD=${SENTRY_SKIP_UPLOAD:-1}
+export SENTRY_SKIP_UPLOAD=1
 
 export ANDROID_NDK_HOME="/usr/lib/android-sdk/ndk/19.2.5345600"
 
