@@ -41,11 +41,11 @@ import * as Sentry from '@sentry/react-native';
 
 console.disableYellowBox = true;
 
-if (!__DEV__) {
-    Sentry.init({
-        dsn: "https://50043662792c42558b59f761be477b71:79b74f53eaae4b5494e2a3a12b307453@sentry.io/257901"
-    });
-}
+// if (!__DEV__) {
+//     Sentry.init({
+//         dsn: "https://50043662792c42558b59f761be477b71:79b74f53eaae4b5494e2a3a12b307453@sentry.io/257901"
+//     });
+// }
 
 function createBaseUiStore() {
     let transforms = compose(applyMiddleware(thunk));
