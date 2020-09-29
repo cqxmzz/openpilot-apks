@@ -429,53 +429,15 @@ class Home extends Component {
                                           size='medium'
                                           weight='semibold'
                                           style={ Styles.homeBodyAccountUpgradeTitle }>
-                                          Upgrade Now
+                                          Drive Safely
                                       </X.Text>
                                       <X.Text
                                           color='white'
                                           size='tiny'
                                           weight='light'
                                           style={ Styles.homeBodyAccountUpgradeContext }>
-                                          Become a comma prime member in the comma app and get premium features!
+                                          cqxmzz branch
                                       </X.Text>
-                                      <View style={ Styles.homeBodyAccountUpgradeFeatures }>
-                                          <View style={ Styles.homeBodyAccountUpgradeFeature }>
-                                              <X.Image
-                                                  isFlex={ false }
-                                                  style={ Styles.homeBodyAccountUpgradeIcon }
-                                                  source={ require('../../img/icon_checkmark.png') } />
-                                              <X.Text
-                                                  color='white'
-                                                  size='tiny'
-                                                  weight='semibold'>
-                                                  Remote Access
-                                              </X.Text>
-                                          </View>
-                                          <View style={ Styles.homeBodyAccountUpgradeFeature }>
-                                              <X.Image
-                                                  isFlex={ false }
-                                                  style={ Styles.homeBodyAccountUpgradeIcon }
-                                                  source={ require('../../img/icon_checkmark.png') } />
-                                              <X.Text
-                                                  color='white'
-                                                  size='tiny'
-                                                  weight='semibold'>
-                                                  1 year of storage
-                                              </X.Text>
-                                          </View>
-                                          <View style={ Styles.homeBodyAccountUpgradeFeature }>
-                                              <X.Image
-                                                  isFlex={ false }
-                                                  style={ Styles.homeBodyAccountUpgradeIcon }
-                                                  source={ require('../../img/icon_checkmark.png') } />
-                                              <X.Text
-                                                  color='white'
-                                                  size='tiny'
-                                                  weight='semibold'>
-                                                  Developer perks
-                                              </X.Text>
-                                          </View>
-                                      </View>
                                   </View>
                               </View>
                           ) : (
