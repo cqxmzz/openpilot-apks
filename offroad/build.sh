@@ -47,3 +47,5 @@ fi
 
 java -jar $TOOLS/signapk/signapk.jar $TOOLS/signapk/certificate.pem $TOOLS/signapk/key.pk8 $APK_PATH $APK_OUT
 echo "build complete"
+
+cp $APK_OUT $PWD/../../../apk/
