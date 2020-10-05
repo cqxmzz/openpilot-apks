@@ -46,5 +46,8 @@
     "redux-persist": "^5.2.2",
     "redux-persist-filesystem-storage": "^1.1.1",
     "redux-thunk": "^2.2.0"
+  },
+  "resolutions": {
+    "graceful-fs": "4.2.4"
   }
 }
