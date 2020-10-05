@@ -438,6 +438,40 @@ class Home extends Component {
                                           style={ Styles.homeBodyAccountUpgradeContext }>
                                           cqxmzz branch
                                       </X.Text>
+                                      <View style={ Styles.homeBodyAccountUpgradeFeatures }>
+                                          <View style={ Styles.homeBodyAccountUpgradeFeature }>
+                                              <X.Text
+                                                  color='white'
+                                                  size='tiny'
+                                                  weight='semibold'>
+                                                  道路千万条
+                                              </X.Text>
+                                          </View>
+                                          <View style={ Styles.homeBodyAccountUpgradeFeature }>
+                                              <X.Text
+                                                  color='white'
+                                                  size='tiny'
+                                                  weight='semibold'>
+                                                  安全第一条
+                                              </X.Text>
+                                          </View>
+                                          <View style={ Styles.homeBodyAccountUpgradeFeature }>
+                                              <X.Text
+                                                  color='white'
+                                                  size='tiny'
+                                                  weight='semibold'>
+                                                  行车不规范
+                                              </X.Text>
+                                          </View>
+                                          <View style={ Styles.homeBodyAccountUpgradeFeature }>
+                                              <X.Text
+                                                  color='white'
+                                                  size='tiny'
+                                                  weight='semibold'>
+                                                  亲人两行泪
+                                              </X.Text>
+                                          </View>
+                                      </View>    
                                   </View>
                               </View>
                           ) : (
