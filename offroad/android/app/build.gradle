@@ -81,6 +81,7 @@ project.ext.sentryCli = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 if(System.getenv('SENTRY_SKIP_UPLOAD') != "1") {
     apply from: "../../node_modules/@sentry/react-native/sentry.gradle"
 } 

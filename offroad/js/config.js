@@ -40,4 +40,10 @@ export const Params = {
     KEY_IS_DRIVER_VIEW_ENABLED: 'IsDriverViewEnabled',
     KEY_IS_RHD: 'IsRHD',
     KEY_IS_OFFROAD: 'IsOffroad',
+    KEY_VOLUME_MULTIPLIER: 'VolumeMultiplier',
+    KEY_BRIGHTNESS_BASE: 'BrightnessBase',
+    KEY_BRIGHTNESS_INCREMENT: 'BrightnessIncrement',
+    KEY_CAMERA_OFFSET: 'CameraOffset',
+    KEY_ALLOW_GAS: 'AllowGas',
+    KEY_GAS_SET_SPEED: 'GasSetSpeed',
 };

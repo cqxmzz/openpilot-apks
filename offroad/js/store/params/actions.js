@@ -45,7 +45,12 @@ const PARAMS = [
   "CommunityFeaturesToggle",
   "IsLdwEnabled",
   "LaneChangeEnabled",
-  "IsRHD"
+  "IsRHD",
+  "VolumeMultiplier",
+  "BrightnessBase",
+  "BrightnessIncremental",
+  "AllowGas",
+  "GasSetSpeed"
 ].concat(ALERT_PARAMS);
 
 export function refreshParams(params) {

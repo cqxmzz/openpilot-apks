@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
+import NumericInput from 'react-native-numeric-input';
 
 import ChffrPlus from '../../native/ChffrPlus';
 import Layout from '../../native/Layout';
@@ -53,6 +54,9 @@ const Icons = {
     openpilot_mirrored: require('../../img/icon_openpilot_mirrored.png'),
     monitoring: require('../../img/icon_monitoring.png'),
     road: require('../../img/icon_road.png'),
+    volume_multiplier: require('../../img/icon_volume.png'),
+    brightness: require('../../img/icon_brightness.png'),
+    allow_gas: require('../../img/icon_allow_gas.png'),
 }
 
 class Settings extends Component {
@@ -182,8 +186,8 @@ class Settings extends Component {
         } = this.props;
         const software = !!parseInt(isPassive) ? 'dashcam' : 'openpilot';
         let connectivity = 'Disconnected'
-        if (wifiState.isConnected && wifiState.ssid) {
-            connectivity = wifiState.ssid;
+        if (wifiState.isConnected && wifiState.ip) {
+            connectivity = wifiState.ip;
         } else if (simState.networkType && simState.networkType != 'NO SIM') {
             connectivity = simState.networkType;
         }
@@ -261,6 +265,12 @@ class Settings extends Component {
                 Passive: isPassive,
                 IsLdwEnabled: isLaneDepartureWarningEnabled,
                 LaneChangeEnabled: laneChangeEnabled,
+                VolumeMultiplier: volumeMultiplier,
+                BrightnessBase: brightnessBase,
+                BrightnessIncrement: brightnessIncrement,
+                CameraOffset: cameraOffset,
+                AllowGas: allowGas,
+                GasSetSpeed: gasSetSpeed,
             },
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
@@ -339,6 +349,134 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'metric' }
                             handleExpanded={ () => this.handleExpanded('metric') }
                             handleChanged={ this.props.setMetric } />
+                        <X.TableCell
+                            type='switch'
+                            title='Allow Gas'
+                            value={ !!parseInt(allowGas) }
+                            iconSource={ Icons.allow_gas }
+                            description='Pressing gas do not stop openpilot, restart to take effect'
+                            isExpanded={ expandedCell == 'allow_gas' }
+                            handleExpanded={ () => this.handleExpanded('allow_gas') }
+                            handleChanged={ this.props.setAllowGas } />
+                        <X.TableCell
+                            type='switch'
+                            title='Gas To Set Speed'
+                            value={ !!parseInt(gasSetSpeed) }
+                            iconSource={ Icons.allow_gas }
+                            description='When Allow Gas is on, if current speed is more than set speed, set as current speed'
+                            isExpanded={ expandedCell == 'gas_set_speed' }
+                            handleExpanded={ () => this.handleExpanded('gas_set_speed') }
+                            handleChanged={ this.props.setGasSetSpeed } />
+                        <X.TableCell
+                            type='custom'
+                            title='Volume Level'
+                            iconSource={ Icons.volume_multiplier }
+                            description='Set volume level, 0 as mute, 100 as maximum'
+                            isExpanded={ expandedCell == 'volume_multiplier' }
+                            handleExpanded={ () => this.handleExpanded('volume_multiplier') }>
+                            <NumericInput
+                                value={ parseInt(volumeMultiplier) }
+                                onChange={multiplier => this.props.setVolumeMultiplier(multiplier)}
+                                onFocus={ () => Layout.emitSidebarCollapsed() }
+                                onBlur={ () => Layout.emitSidebarExpanded() }
+                                totalWidth={120}
+                                totalHeight={40}
+                                iconSize={25}
+                                minValue={0}
+                                maxValue={100}
+                                step={20}
+                                valueType='integer'
+                                rounded
+                                borderColor="transparent"
+                                textColor='#96b4c8'
+                                iconStyle={{ color: '#FFFFFF'}}
+                                reachMaxIncIconStyle={{color: '#777777'}}
+                                reachMinDecIconStyle={{color: '#777777'}}
+                                rightButtonBackgroundColor='transparent'
+                                leftButtonBackgroundColor='transparent'/>
+                        </X.TableCell>
+                        <X.TableCell
+                            type='custom'
+                            title='Screen Brightness Base'
+                            iconSource={ Icons.brightness }
+                            description='Base of screen brightness, if too bright at night, decrease this'
+                            isExpanded={ expandedCell == 'brightness_base' }
+                            handleExpanded={ () => this.handleExpanded('brightness_base') }>
+                            <NumericInput
+                                value={ parseInt(brightnessBase) }
+                                onChange={base => this.props.setBrightnessBase(base)}
+                                onFocus={ () => Layout.emitSidebarCollapsed() }
+                                onBlur={ () => Layout.emitSidebarExpanded() }
+                                totalWidth={120}
+                                totalHeight={40}
+                                iconSize={25}
+                                minValue={0}
+                                maxValue={1000}
+                                step={10}
+                                valueType='integer'
+                                rounded
+                                borderColor="transparent"
+                                textColor='#96b4c8'
+                                iconStyle={{ color: '#FFFFFF'}}
+                                reachMaxIncIconStyle={{color: '#777777'}}
+                                reachMinDecIconStyle={{color: '#777777'}}
+                                rightButtonBackgroundColor='transparent'
+                                leftButtonBackgroundColor='transparent'/>
+                        </X.TableCell>
+                        <X.TableCell
+                            type='custom'
+                            title='Screen Brightness Increment'
+                            iconSource={ Icons.brightness }
+                            description='Increment of screen brightness, if too bright at day, decrease this'
+                            isExpanded={ expandedCell == 'brightness_increment' }
+                            handleExpanded={ () => this.handleExpanded('brightness_increment') }>
+                            <NumericInput
+                                value={ parseInt(brightnessIncrement) }
+                                onChange={increment => this.props.setBrightnessIncrement(increment)}
+                                onFocus={ () => Layout.emitSidebarCollapsed() }
+                                onBlur={ () => Layout.emitSidebarExpanded() }
+                                totalWidth={120}
+                                totalHeight={40}
+                                iconSize={25}
+                                minValue={0}
+                                maxValue={1000}
+                                step={10}
+                                valueType='integer'
+                                rounded
+                                borderColor="transparent"
+                                textColor='#96b4c8'
+                                iconStyle={{ color: '#FFFFFF'}}
+                                reachMaxIncIconStyle={{color: '#777777'}}
+                                reachMinDecIconStyle={{color: '#777777'}}
+                                rightButtonBackgroundColor='transparent'
+                                leftButtonBackgroundColor='transparent'/>
+                        </X.TableCell>
+                        <X.TableCell
+                            type='custom'
+                            title='Camera Offset'
+                            iconSource={ Icons.road }
+                            description='Offset of EON camera from the center, increase if car drive close to the right'
+                            isExpanded={ expandedCell == 'camera_offset' }
+                            handleExpanded={ () => this.handleExpanded('camera_offset') }>
+                            <NumericInput
+                                value={ parseInt(cameraOffset) }
+                                onChange={offset => this.props.setCameraOffset(offset)}
+                                onFocus={ () => Layout.emitSidebarCollapsed() }
+                                onBlur={ () => Layout.emitSidebarExpanded() }
+                                totalWidth={120}
+                                totalHeight={40}
+                                iconSize={25}
+                                step={1}
+                                valueType='integer'
+                                rounded
+                                borderColor="transparent"
+                                textColor='#96b4c8'
+                                iconStyle={{ color: '#FFFFFF' }}
+                                reachMaxIncIconStyle={{color: '#777777'}}
+                                reachMinDecIconStyle={{color: '#777777'}}
+                                rightButtonBackgroundColor='transparent'
+                                leftButtonBackgroundColor='transparent'/>
+                        </X.TableCell>
                       </X.Table>
                       {/*
                       <X.Table color='darkBlue'>
@@ -948,6 +1086,24 @@ const mapDispatchToProps = dispatch => ({
     },
     setLaneChangeEnabled: (laneChangeEnabled) => {
         dispatch(updateParam(Params.KEY_LANE_CHANGE_ENABLED, (laneChangeEnabled | 0).toString()));
+    },
+    setAllowGas: (allowGas) => {
+        dispatch(updateParam(Params.KEY_ALLOW_GAS, (allowGas | 0).toString()));
+    },
+    setGasSetSpeed: (gasSetSpeed) => {
+        dispatch(updateParam(Params.KEY_GAS_SET_SPEED, (gasSetSpeed | 0).toString()));
+    },
+    setVolumeMultiplier: (volumeMultiplier) => {
+        dispatch(updateParam(Params.KEY_VOLUME_MULTIPLIER, (volumeMultiplier).toString()));
+    },
+    setBrightnessBase: (base) => {
+        dispatch(updateParam(Params.KEY_BRIGHTNESS_BASE, (base).toString()));
+    },
+    setBrightnessIncrement: (brightnessIncrement) => {
+        dispatch(updateParam(Params.KEY_BRIGHTNESS_INCREMENT, (brightnessIncrement).toString()));
+    },
+    setCameraOffset: (camera_offset) => {
+        dispatch(updateParam(Params.KEY_CAMERA_OFFSET, (camera_offset).toString()));
     },
     deleteParam: (param) => {
         dispatch(deleteParam(param));

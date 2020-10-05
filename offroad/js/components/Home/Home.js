@@ -444,7 +444,7 @@ class Home extends Component {
                                                   color='white'
                                                   size='tiny'
                                                   weight='semibold'>
-                                                  道路千万条
+                                                  We are not a proud race
                                               </X.Text>
                                           </View>
                                           <View style={ Styles.homeBodyAccountUpgradeFeature }>
@@ -452,7 +452,7 @@ class Home extends Component {
                                                   color='white'
                                                   size='tiny'
                                                   weight='semibold'>
-                                                  安全第一条
+                                                  It's not a race at all
                                               </X.Text>
                                           </View>
                                           <View style={ Styles.homeBodyAccountUpgradeFeature }>
@@ -460,7 +460,7 @@ class Home extends Component {
                                                   color='white'
                                                   size='tiny'
                                                   weight='semibold'>
-                                                  行车不规范
+                                                  We're just trying
                                               </X.Text>
                                           </View>
                                           <View style={ Styles.homeBodyAccountUpgradeFeature }>
@@ -468,7 +468,15 @@ class Home extends Component {
                                                   color='white'
                                                   size='tiny'
                                                   weight='semibold'>
-                                                  亲人两行泪
+                                                  I'm only trying
+                                              </X.Text>
+                                          </View>
+                                          <View style={ Styles.homeBodyAccountUpgradeFeature }>
+                                              <X.Text
+                                                  color='white'
+                                                  size='tiny'
+                                                  weight='semibold'>
+                                                  To get home
                                               </X.Text>
                                           </View>
                                       </View>    
