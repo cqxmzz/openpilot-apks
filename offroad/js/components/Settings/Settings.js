@@ -384,7 +384,7 @@ class Settings extends Component {
                                 iconSize={25}
                                 minValue={0}
                                 maxValue={100}
-                                step={20}
+                                step={10}
                                 valueType='integer'
                                 rounded
                                 borderColor="transparent"
@@ -403,7 +403,7 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'brightness_base' }
                             handleExpanded={ () => this.handleExpanded('brightness_base') }>
                             <NumericInput
-                                value={ parseInt(brightnessBase) }
+                                value={ parseInt(brightnessBase)}
                                 onChange={base => this.props.setBrightnessBase(base)}
                                 onFocus={ () => Layout.emitSidebarCollapsed() }
                                 onBlur={ () => Layout.emitSidebarExpanded() }
@@ -411,7 +411,8 @@ class Settings extends Component {
                                 totalHeight={40}
                                 iconSize={25}
                                 minValue={0}
-                                maxValue={1000}
+                                maxValue={1023}
+                                initValue={1023}
                                 step={10}
                                 valueType='integer'
                                 rounded
@@ -431,7 +432,7 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'brightness_increment' }
                             handleExpanded={ () => this.handleExpanded('brightness_increment') }>
                             <NumericInput
-                                value={ parseInt(brightnessIncrement) }
+                                value={ parseFloat(brightnessIncrement)}
                                 onChange={increment => this.props.setBrightnessIncrement(increment)}
                                 onFocus={ () => Layout.emitSidebarCollapsed() }
                                 onBlur={ () => Layout.emitSidebarExpanded() }
@@ -439,9 +440,10 @@ class Settings extends Component {
                                 totalHeight={40}
                                 iconSize={25}
                                 minValue={0}
-                                maxValue={1000}
-                                step={10}
-                                valueType='integer'
+                                maxValue={1023}
+                                initValue={0}
+                                step={0.01}
+                                valueType='real'
                                 rounded
                                 borderColor="transparent"
                                 textColor='#96b4c8'
