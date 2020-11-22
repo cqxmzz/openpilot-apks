@@ -412,7 +412,6 @@ class Settings extends Component {
                                 iconSize={25}
                                 minValue={0}
                                 maxValue={1023}
-                                initValue={1023}
                                 step={10}
                                 valueType='integer'
                                 rounded
@@ -441,7 +440,6 @@ class Settings extends Component {
                                 iconSize={25}
                                 minValue={0}
                                 maxValue={1023}
-                                initValue={0}
                                 step={0.01}
                                 valueType='real'
                                 rounded
