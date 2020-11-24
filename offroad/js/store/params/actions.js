@@ -48,7 +48,7 @@ const PARAMS = [
   "IsRHD",
   "VolumeMultiplier",
   "BrightnessBase",
-  "BrightnessIncremental",
+  "BrightnessIncrement",
   "AllowGas",
   "GasSetSpeed"
 ].concat(ALERT_PARAMS);
