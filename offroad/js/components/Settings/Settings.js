@@ -410,9 +410,9 @@ class Settings extends Component {
                                 totalWidth={120}
                                 totalHeight={40}
                                 iconSize={25}
-                                minValue={0}
-                                maxValue={1023}
-                                step={10}
+                                minValue={-20}
+                                maxValue={20}
+                                step={1}
                                 valueType='integer'
                                 rounded
                                 borderColor="transparent"
@@ -438,8 +438,8 @@ class Settings extends Component {
                                 totalWidth={120}
                                 totalHeight={40}
                                 iconSize={25}
-                                minValue={0}
-                                maxValue={1023}
+                                minValue={-10}
+                                maxValue={10}
                                 step={0.01}
                                 valueType='real'
                                 rounded
