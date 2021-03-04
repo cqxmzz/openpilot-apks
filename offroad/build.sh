@@ -8,7 +8,7 @@ TOOLS="$PWD/../tools"
 CEREAL="$PWD/../../cereal"
 export SENTRY_SKIP_UPLOAD=1
 
-export ANDROID_NDK_HOME="/usr/lib/android-sdk/ndk/19.2.5345600"
+#export ANDROID_NDK_HOME="/usr/lib/android-sdk/ndk/19.2.5345600"
 
 if [ ! -d $CEREAL ]; then
   git clone https://github.com/commaai/cereal.git $CEREAL
@@ -19,6 +19,7 @@ scons -i -j$(nproc)
 popd
 
 export SENTRY_WIZARD_INTEGRATION=reactNative
+export SENTRY_SKIP_UPLOAD=1
 
 yarn
 
